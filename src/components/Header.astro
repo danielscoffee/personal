@@ -1,0 +1,26 @@
+---
+import { Icon } from 'astro-icon/components';
+import '../styles/global.scss';
+import { SiteName } from '../consts';
+---
+
+<header>
+	<nav>
+		<h2 id="site_title" style="display: flex;">
+			<Icon name="logo" />
+			<a href="/">
+				{SiteName}
+			</a>
+		</h2>
+		<div class="links">
+			<a href="/projects">Projects</a>
+			<a href="/blog">Blog</a>
+		</div>
+	</nav>
+</header>
+
+<style>
+	.links a {
+		text-decoration: none;
+	}
+</style>
