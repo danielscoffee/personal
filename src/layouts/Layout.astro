@@ -16,7 +16,9 @@ import '../styles/global.scss'
 		<meta name="generator" content={Astro.generator} />
 		<title>{ SiteName }</title>
 	</head>
-	<Header />
-	<slot />
-	<Footer />
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
 </html>
