@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
 import icon from "astro-icon";
 
-import vercel from "@astrojs/vercel/serverless";
-
 import mdx from "@astrojs/mdx";
 
 import netlify from "@astrojs/netlify";
