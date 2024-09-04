@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import '../styles/global.scss';
-import { SiteName } from '../consts';
+import { SITENAME } from '../consts';
 ---
 
 <header>
@@ -9,7 +9,7 @@ import { SiteName } from '../consts';
 		<h2 id="site_title" style="display: flex;">
 			<Icon name="logo" />
 			<a href="/">
-				{SiteName}
+				{ SITENAME }
 			</a>
 		</h2>
 		<div class="links">

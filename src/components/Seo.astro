@@ -1,9 +1,10 @@
 ---
 import { SEO } from 'astro-seo';
 import { SiteName } from '../consts';
+const description: any = Astro.props
 ---
 
 <SEO 
 	title={ SiteName }
-	description="A blog-portfolio, with my projects and experience. I gonna tell about tech and stuffs"
+	description={ description }
 />

@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from "astro:content"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import Head from "../components/BaseHead.astro"
+import TimePosted from "../components/TimePosted.astro"
+
+type Props = CollectionEntry<'blog'>['data']
+
+import '../styles/global.scss'
+const { description, title, pubDate, updatedDate } = Astro.props
+---
+
+<html lang="en">
+	<Head title={ title } description={ description }/>
+	<body>
+		<Header />
+		<main>
+			<article>
+				<div>
+					<h1>{ title }</h1>
+					<TimePosted date={ pubDate }/>
+					{
+						updatedDate && (
+						<div>
+							Last updated on <TimePosted date={ updatedDate }/>	
+						</div>
+						)
+					}
+				</div>
+			</article>
+		</main>	
+		<Footer />
+	</body>
+</html>

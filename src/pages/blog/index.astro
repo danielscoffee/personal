@@ -1,9 +1,37 @@
 ---
-import { Icon } from "astro-icon/components"
-import Layout from "../../layouts/Layout.astro"
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { SITENAME } from '../../consts';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/TimePosted.astro';
+
+const posts = (await getCollection('blog')).sort(
+	(a: any, b: any) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 ---
 
-<Layout>
-	<Icon name="inwork" size={"100px"}/>
-	<h1>In working yet</h1>
-</Layout>
+<!doctype html>
+<html lang="en">
+	<BaseHead title={SITENAME} />
+	<body>
+		<Header />
+		<main>
+			<section>
+				<ul>
+					{
+						posts.map((post: any) => (
+								<a href={`/blog/${post.slug}/`}>
+									<h4>{post.data.title}</h4>
+									<p>
+										<FormattedDate date={post.data.pubDate} />
+									</p>
+								</a>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
